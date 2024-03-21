@@ -32,7 +32,8 @@ class LinkedList {
 
   pop() {
     if (!this.head) return undefined
-    if (this.head.length === 1) return this.head = this.tail = null
+    if (this.head.length === 1) 
+      return this.head = this.tail = null
 
     let temp = this.head
     let pre = this.head
