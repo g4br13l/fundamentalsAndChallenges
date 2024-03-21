@@ -9,16 +9,21 @@ export class Node {
 export class LinkedList {
 
   constructor(value) {
-    const newNode = new Node(value)
-    this.head = newNode
-    this.tail = this.head
-    this.length = 1
+    if(value === null) {
+      this.head = this.tail = null
+      this.length = 0
+    }
+    else {
+      const newNode = new Node(value)
+      this.head = newNode
+      this.tail = this.head
+      this.length = 1
+    }
   }
 
   push(value) {
     const newNode = new Node(value)
-    if (this.head === null) {
-      console.log('if runs')
+    if (!this.head) {
       this.head = newNode
       this.tail = newNode
     }
@@ -32,9 +37,6 @@ export class LinkedList {
 
   pop() {
     if (!this.head) return undefined
-    if (this.head.length === 1) 
-      return this.head = this.tail = null
-
     let temp = this.head
     let pre = this.head
 
@@ -44,12 +46,12 @@ export class LinkedList {
     }
     this.tail = pre
     this.tail.next = null
+    if (this.length === 1) this.head = this.tail = null
     this.length--
     return temp
   }
 
   unshift(value) {
-    this.#printList('before')
     const newNode = new Node(value)
 
     if (!this.head) {
@@ -60,24 +62,20 @@ export class LinkedList {
       this.head = newNode
     }
     this.length++
-    this.#printList('after')
     return this
   }
 
   shift() {
-    this.#printList('before')
     const temp = this.head
     if(!this.head) return undefined
     if(this.length === 1) {
       this.head = this.tail = null
     }
     else {
-      
       this.head = this.head.next
       temp.next = null
     }
     this.length--
-    this.#printList('after')
     return temp
   }
   
@@ -94,9 +92,9 @@ export class LinkedList {
 
 
   // ===== Auxiliary =====
-  #printList(message) {
+  /*#printList(message) {
     console.log(message, myLinkedList)
-  }
+  }*/
 
   makeEmpty() {
     this.head = null;
@@ -107,24 +105,20 @@ export class LinkedList {
 }
 
 
-//const node1 = new Node(10)
-//console.log('node1:', node1)
-
+/*const node1 = new Node(10)
+console.log('node1:', node1)
 const myLinkedList = new LinkedList(1)
 myLinkedList.push(2)
-//myLinkedList.push(3)
+myLinkedList.push(3)
 console.log('myLinkedList:', myLinkedList)
-
-/*console.log(myLinkedList.pop())
 console.log(myLinkedList.pop())
 console.log(myLinkedList.pop())
-console.log(myLinkedList.pop())*/
-
-//myLinkedList.unshift(4)
-
-//console.log(myLinkedList.shift())
-//console.log(myLinkedList.shift())
-//console.log(myLinkedList.shift())
+console.log(myLinkedList.pop())
+console.log(myLinkedList.pop())
+myLinkedList.unshift(4)
+console.log(myLinkedList.shift())
+console.log(myLinkedList.shift())
+console.log(myLinkedList.shift())*/
 
 
 
