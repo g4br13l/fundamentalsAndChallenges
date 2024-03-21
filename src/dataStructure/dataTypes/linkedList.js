@@ -22,7 +22,7 @@ class LinkedList {
       this.head = newNode
       this.tail = newNode
     }
-    else { //this.tail points to the same object as head.
+    else { //this.tail points to the same object as head
       this.tail.next = newNode
       this.tail = newNode
     }
@@ -41,16 +41,42 @@ class LinkedList {
       pre = temp
       temp = temp.next
     }
-    //In lists with one element tail points to the same object as head
-    //this.tail = {...pre, next: null} //Not the sema object pointed by last element
     this.tail = pre
     this.tail.next = null
     this.length--
     return temp
   }
 
+  unshift(value) {
+    this.#printList('before')
+    const newNode = new Node(value)
 
-  // Auxiliary
+    if (!this.head) {
+      this.head = this.tail = newNode
+    }
+    else {
+      newNode.next = this.head
+      this.head = newNode
+    }
+    this.length++
+    this.#printList('after')
+    return this
+  }
+
+  shift() {
+    if(!this.head) return undefined
+    if(this.length === 1) {
+      this.head = this.tail = null
+    }
+    else {
+      this.head = this.head.next
+    }
+    this.length--
+    return this
+  }
+
+
+  // ===== Auxiliary =====
   #printList(message) {
     console.log(message, myLinkedList)
   }
@@ -70,12 +96,14 @@ class LinkedList {
 const myLinkedList = new LinkedList(1)
 myLinkedList.push(2)
 myLinkedList.push(3)
-myLinkedList.push(4)
+//console.log('myLinkedList:', myLinkedList)
 
+/*console.log(myLinkedList.pop())
 console.log(myLinkedList.pop())
 console.log(myLinkedList.pop())
-console.log(myLinkedList.pop())
-console.log(myLinkedList.pop())
+console.log(myLinkedList.pop())*/
+
+myLinkedList.unshift(4)
 
 
 
