@@ -6,4 +6,4 @@ dist
 package-lock.json
 .idea
 # Project exclude paths
-/src/bases/searchAlgorithms/binarySearch.js
+/src/searchAlgorithms/binarySearch.js
