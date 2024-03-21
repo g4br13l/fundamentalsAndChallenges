@@ -1,12 +1,12 @@
 
-class Node {
+export class Node {
   constructor(value) {
     this.value = value
     this.next = null
   }
 }
 
-class LinkedList {
+export class LinkedList {
 
   constructor(value) {
     const newNode = new Node(value)
@@ -65,15 +65,31 @@ class LinkedList {
   }
 
   shift() {
+    this.#printList('before')
+    const temp = this.head
     if(!this.head) return undefined
     if(this.length === 1) {
       this.head = this.tail = null
     }
     else {
+      
       this.head = this.head.next
+      temp.next = null
     }
     this.length--
-    return this
+    this.#printList('after')
+    return temp
+  }
+  
+  get(index) {
+    if(index < 0 || index > this.length-1)
+      return undefined
+    if(!this.head) return null
+    let temp = this.head
+    for (let i = 0; i <= index; i++) {
+      temp = temp.next
+    }
+    return temp
   }
 
 
@@ -96,16 +112,19 @@ class LinkedList {
 
 const myLinkedList = new LinkedList(1)
 myLinkedList.push(2)
-myLinkedList.push(3)
-//console.log('myLinkedList:', myLinkedList)
+//myLinkedList.push(3)
+console.log('myLinkedList:', myLinkedList)
 
 /*console.log(myLinkedList.pop())
 console.log(myLinkedList.pop())
 console.log(myLinkedList.pop())
 console.log(myLinkedList.pop())*/
 
-myLinkedList.unshift(4)
+//myLinkedList.unshift(4)
 
+//console.log(myLinkedList.shift())
+//console.log(myLinkedList.shift())
+//console.log(myLinkedList.shift())
 
 
 
