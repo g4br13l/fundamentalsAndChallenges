@@ -84,12 +84,22 @@ export class LinkedList {
       return undefined
     if(!this.head) return null
     let temp = this.head
-    for (let i = 0; i <= index; i++) {
+    for (let i = 1; i <= index; i++) {
       temp = temp.next
     }
     return temp
   }
 
+  set(index, value) {
+    let temp = this.get(index)
+    if(temp) {
+      temp.value = value
+      return true
+    }
+    return false
+  }
+
+  //TODO: Insert(), remove(), reverse()
 
   // ===== Auxiliary =====
   /*#printList(message) {
@@ -105,8 +115,9 @@ export class LinkedList {
 }
 
 
-/*const node1 = new Node(10)
-console.log('node1:', node1)
+
+
+/*
 const myLinkedList = new LinkedList(1)
 myLinkedList.push(2)
 myLinkedList.push(3)
