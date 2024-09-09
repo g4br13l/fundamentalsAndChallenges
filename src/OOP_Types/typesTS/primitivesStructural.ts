@@ -20,30 +20,35 @@
 */
 
 
-// Primitive string - Gets the value
-let x = 2;
-let y = x;
+namespace PrimitivesStructutal {
 
-y += 1;
-console.log('y:', y, 'x:', x);
+  // Primitive string - Gets the value
+  let x = 2;
+  let y = x;
+
+  y += 1;
+  console.log('y:', y, 'x:', x);
 
 
 // Structural Array - Gets the reference to a value
-let xArray = [1, 2, 3];
-let yArray = xArray;
+  let xArray = [1, 2, 3];
+  let yArray = xArray;
 
-yArray.push(4);
-console.log('xArray:', xArray, 'yArray:', yArray);
+  yArray.push(4);
+  console.log('xArray:', xArray, 'yArray:', yArray);
 
 
 
-let myName = 'Gabriel';
+  let myName = 'Gabriel';
 //myName[0] = 'R';         // Error: Index signature in type String only permits reading.
 
-myName = 'Rafael';   // Resigning the value. It is different of modify the value.
+  myName = 'Rafael';   // Resigning the value. It is different of modify the value.
 
-yArray[0] = 9;
-console.log('xArray:', xArray, 'yArray:', yArray);
+  yArray[0] = 9;
+  console.log('xArray:', xArray, 'yArray:', yArray);
+
+}
+
 
 
 
