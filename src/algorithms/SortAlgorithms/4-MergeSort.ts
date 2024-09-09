@@ -11,7 +11,7 @@ const splitArray = (items: number[]): {vectorA: number[], vectorB: number[]} => 
 }
 
 
-function mergeSort(items: number[]): number[] {
+function mergeSortTwo(items: number[]): number[] {
 
   if (items.length <= 1) return items;
 
@@ -20,16 +20,15 @@ function mergeSort(items: number[]): number[] {
   console.log('vectorA: '+ vectorA);
   console.log('vectorB: '+ vectorB);
 
-  vectorA = mergeSort(vectorA);
-  vectorB = mergeSort(vectorB);
+  vectorA = mergeSortTwo(vectorA);
+  vectorB = mergeSortTwo(vectorB);
 
   let vectorRes = [];
   let indexA = 0;
   let indexB = 0;
   let indexRes = 0;
 
-  while (indexA < vectorA.length && indexB < vectorB.length)
-  {
+  while (indexA < vectorA.length && indexB < vectorB.length) {
     if (vectorA[indexA] <= vectorB[indexB]) {
       vectorRes[indexRes] = vectorA[indexA];
       indexA++;
@@ -53,5 +52,5 @@ function mergeSort(items: number[]): number[] {
   return vectorRes;
 }
 
-console.log('mergeSort => '+ mergeSort([7, 10, 19, 9, 1, 12, 3, 6, 17, 19, 1]) );
+console.log('mergeSortTwo => '+ mergeSortTwo([7, 10, 19, 9, 1, 12, 3, 6, 17, 19, 1]) );
 

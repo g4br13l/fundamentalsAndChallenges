@@ -51,9 +51,36 @@ const binarySearchRecursive = (target: number, list: number[], low?: number, up?
 }
 
 
+function binarySearchOther(target: number, list: number[]) {
 
-console.log('binarySearch => '+ binarySearch(129, [2, 3, 5, 8, 13, 21, 32, 64, 128, 256]) );
-console.log('binarySearchRecursive => '+ binarySearchRecursive(129, [2, 3, 5, 8, 13, 21, 32, 64, 128, 256]) );
+  let leftP = 0
+  let rightP = list.length -1
+
+  while( leftP < rightP ) {
+
+    let midP = Math.floor( (leftP + rightP) / 2)
+    let currentVal = list[midP]
+
+    if ( target === currentVal ) return midP;
+
+    else if ( target < currentVal ) {
+      rightP = midP - 1
+    }
+
+    else {
+      leftP = midP + 1
+    }
+  }
+  return -1;
+
+}
+
+
+//console.log('binarySearch => '+ binarySearchOther(129, [2, 3, 5, 8, 13, 21, 32, 64, 128, 256]) );
+
+
+//console.log('binarySearch => '+ binarySearch(128, [2, 3, 5, 8, 13, 21, 32, 64, 128, 256]) );
+//console.log('binarySearchRecursive => '+ binarySearchRecursive(129, [2, 3, 5, 8, 13, 21, 32, 64, 128, 256]) );
 
 
 
