@@ -99,6 +99,19 @@ export class LinkedList {
     return false
   }
 
+  insert(value, index) {
+    if(index < 0 || index >= this.length) return false
+    if(index === 0) return this.unshift(value)
+    if(index === this.length-1) return this.push(value)
+
+    const newNode = new Node(value)
+    let temp = this.get(index)
+    newNode.next = temp.next
+    temp.next = newNode
+    this.length++
+    return this
+  }
+
   //TODO: Insert(), remove(), reverse()
 
   // ===== Auxiliary =====
